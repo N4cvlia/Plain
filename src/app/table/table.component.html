@@ -28,8 +28,8 @@
         <div class="users-container">
             @for (post of allPosts; track $index) {
                 <div class="user-card">
-                    <div class="user-header" *ngIf="users2">
-                        <div class="user-avatar" *ngIf="users2[post.userId - 1].name">{{users2[post.userId - 1].name.split(" ")[0][0] + users2[post.userId - 1].name.split(" ")[1][0]}}</div>
+                    <div class="user-header" *ngIf="users2[post.userId - 1]">
+                        <div class="user-avatar">{{users2[post.userId - 1].name.split(" ")[0][0] + users2[post.userId - 1].name.split(" ")[1][0]}}</div>
                         <div class="user-name">
                             <h3>{{users2[post.userId - 1].name}}</h3>
                         </div>
