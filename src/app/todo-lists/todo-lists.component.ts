@@ -30,6 +30,9 @@ export class TodoListsComponent implements OnInit {
     this.api.getTodosById(id).subscribe({
       next: (data: any) => {
         this.todoList = data
+      },
+      error: (err: any) => {
+        console.log(err)
       }
     })
   }

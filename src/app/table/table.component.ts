@@ -48,6 +48,9 @@ export class TableComponent implements OnInit{
     this.api.getUsers().subscribe({
       next: (data: any) => {
         this.users = data.filter((user:any) => user.name.toLowerCase().includes(this.searchInput.toLowerCase()) || user.email.toLowerCase().includes(this.searchInput.toLowerCase()));
+      },
+      error: (err: any) => {
+        console.log(err)
       }
     })
   }
@@ -61,6 +64,9 @@ export class TableComponent implements OnInit{
     this.api.getAllPosts().subscribe({
       next: (data : any) => {
         this.allPosts = data;
+      },
+      error: (err: any) => {
+        console.log(err)
       }
     })
   }
@@ -70,6 +76,9 @@ export class TableComponent implements OnInit{
       next: (data: any) => {
         this.users = data;
         this.users2 = data;
+      },
+      error: (err: any) => {
+        console.log(err)
       }
     })
   }

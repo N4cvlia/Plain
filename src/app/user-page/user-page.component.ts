@@ -45,6 +45,9 @@ export class UserPageComponent implements OnInit {
     this.api.getAllPostsbyId(id).subscribe({
       next: (data: any) => {
         this.userPosts = data
+      },
+      error: (err: any) => {
+        console.log(err)
       }
     })
   }
