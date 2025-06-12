@@ -15,7 +15,7 @@ app-todo-lists {
     app-navigation {
         position: fixed;
         z-index: 100;
-        justify-content: center;
+        
         width: 100%;
     }
 }
