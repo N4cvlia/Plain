@@ -11,3 +11,11 @@ app-table {
 app-todo-lists {
     width: 100%;
 }
+@media (max-width: 530px) {
+    app-navigation {
+        position: fixed;
+        z-index: 100;
+        justify-content: center;
+        width: 100%;
+    }
+}
