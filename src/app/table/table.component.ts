@@ -15,7 +15,6 @@ import { toArray } from 'rxjs';
 export class TableComponent implements OnInit{
   constructor(private api: ApiService, private routing : Router, private subjects: SubjectsService){
     
-    
   }
   ngOnInit(): void {
     this.subjects.action$.subscribe({
