@@ -28,7 +28,7 @@ export class TableComponent implements OnInit{
   }
 
   @ViewChild('popup') search! : ElementRef;
-  public users: any;
+  public users: any = [];
   public usersOrPosts: any = "posts";
   public isVisib: boolean = false;
   public allPosts: any;
@@ -39,6 +39,7 @@ export class TableComponent implements OnInit{
   @HostListener("document:click", ['$event'])
   onDocumentClick(event : Event) {
     if(this.isVisib){
+      
       if(!this.search.nativeElement.contains(event.target)){
         this.isVisib = false;
       }
