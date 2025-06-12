@@ -31,6 +31,7 @@ nav i {
 .menu1 {
     display: flex;
     transition: all 0.3s;
+    justify-content: center;
 }
 .menu1.active{
     background-color: black;
