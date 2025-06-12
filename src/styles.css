@@ -6,6 +6,7 @@
 }
 app-table {
     width: 100%;
+    min-height: 685px;
 }
 app-todo-lists {
     width: 100%;

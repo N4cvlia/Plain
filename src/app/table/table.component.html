@@ -2,9 +2,9 @@
     <div class="popup" *ngIf="isVisib">
         <div class="user-card cardMedia" #popup>
             <div class="user-header">
-                <div class="user-avatar">{{users[popUpData.id].name.split(" ")[0][0] + users[popUpData.id].name.split(" ")[1][0]}}</div>
+                <div class="user-avatar">{{users2[popUpData.id].name.split(" ")[0][0] + users2[popUpData.id].name.split(" ")[1][0]}}</div>
                 <div class="user-name">
-                    <h3>{{users[popUpData.id].name}}</h3>
+                    <h3>{{users2[popUpData.id].name}}</h3>
                 </div>
             </div>
             <div class="user-details">
@@ -29,9 +29,9 @@
             @for (post of allPosts; track $index) {
                 <div class="user-card">
                     <div class="user-header" *ngIf="users">
-                        <div class="user-avatar">{{users[post.userId - 1].name.split(" ")[0][0] + users[post.userId - 1].name.split(" ")[1][0]}}</div>
+                        <div class="user-avatar">{{users2[post.userId - 1].name.split(" ")[0][0] + users2[post.userId - 1].name.split(" ")[1][0]}}</div>
                         <div class="user-name">
-                            <h3>{{users[post.userId - 1].name}}</h3>
+                            <h3>{{users2[post.userId - 1].name}}</h3>
                         </div>
                     </div>
                     <div class="user-details">

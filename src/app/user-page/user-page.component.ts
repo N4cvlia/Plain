@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../api.service';
 import { CommonModule } from '@angular/common';
@@ -21,15 +21,16 @@ export class UserPageComponent implements OnInit {
   public popUpData: any;
 
   @HostListener("document:click", ['$event'])
-  onDocumentClick(event : Event) {
-    if(!this.search.nativeElement.contains(event.target)){
-      this.isVisib = false;
-    }
+  onDocumentClick(event: Event): void {
+  if (this.search?.nativeElement && !this.search.nativeElement.contains(event.target as Node)) {
+    this.isVisib = false;
   }
+}
+  
 
   getDetails(id: any) {
     this.isVisib = true;
-    this.popUpData = this.userPosts[id - 1];
+    this.popUpData = this.userPosts[id];
   }
 
   getId() {

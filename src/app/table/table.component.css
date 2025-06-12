@@ -109,6 +109,7 @@ body {
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 25px;
     padding: 30px;
+    min-height: 250px;
 }
 
 .user-card {
@@ -133,7 +134,7 @@ body {
     width: 100%;
     height: 100%;
     z-index: 100;
-    backdrop-filter: blur(10px) brightness(50%);
+    backdrop-filter: blur(4px);
     display: flex;
     justify-content: center;
 }

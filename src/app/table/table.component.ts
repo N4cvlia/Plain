@@ -20,7 +20,7 @@ export class TableComponent implements OnInit{
   ngOnInit(): void {
     this.subjects.action$.subscribe({
       next: (data: any) => {
-        this.usersOrPosts = data
+        this.usersOrPosts = data;
       }
     })
     this.getUsers()
@@ -29,6 +29,7 @@ export class TableComponent implements OnInit{
 
   @ViewChild('popup') search! : ElementRef;
   public users: any = [];
+  public users2: any = [];
   public usersOrPosts: any = "posts";
   public isVisib: boolean = false;
   public allPosts: any;
@@ -37,14 +38,12 @@ export class TableComponent implements OnInit{
 
 
   @HostListener("document:click", ['$event'])
-  onDocumentClick(event : Event) {
-    if(this.isVisib){
-      
-      if(!this.search.nativeElement.contains(event.target)){
-        this.isVisib = false;
-      }
-    }
+  onDocumentClick(event: Event): void {
+  if (this.search?.nativeElement && !this.search.nativeElement.contains(event.target as Node)) {
+    this.isVisib = false;
   }
+}
+  
 
   searchUp() {
     this.api.getUsers().subscribe({
@@ -71,13 +70,16 @@ export class TableComponent implements OnInit{
     this.api.getUsers().subscribe({
       next: (data: any) => {
         this.users = data;
+        this.users2 = data;
       }
     })
   }
   goToPosts(user : any, userName: any) {
+    this.subjects.isHovered.next("kill")
     this.routing.navigate(['/User'], {queryParams: {id : user.id, name: userName}})
   }
   goToTodo(user: any, userName: any) {
     this.routing.navigate(["/Todo"], {queryParams: {id: user.id, name: userName}})
+    this.subjects.isHovered.next("kill")
   }
 }
