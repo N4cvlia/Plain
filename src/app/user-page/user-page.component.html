@@ -1,0 +1,53 @@
+<div class="popup" *ngIf="isVisib">
+    <div class="user-card cardMedia" #popup>
+        <div class="user-header">
+            <div class="user-avatar">{{name.split(" ")[0][0] + name.split(" ")[1][0]}}</div>
+            <div class="user-name">
+                <h3>{{name}}</h3>
+            </div>
+        </div>
+        <div class="user-details">
+            <div class="detail-item">
+                <div class="detail-content">
+                    <div class="detail-label">{{popUpData.title}}</div>
+                </div>
+            </div>
+            <div class="detail-item">
+                <div class="detail-content">
+                    <div class="detail-value">{{popUpData.body}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="header">
+        <h1>{{name}}-ის პოსტების სია</h1>
+    </div>
+    <div class="usersContainer">
+        @for (post of userPosts; track $index) {
+            <div class="user-card">
+                <div class="user-header">
+                    <div class="user-avatar">{{name.split(" ")[0][0] + name.split(" ")[1][0]}}</div>
+                    <div class="user-name">
+                        <h3>{{name}}</h3>
+                    </div>
+                </div>
+                <div class="user-details">
+                    <div class="detail-item">
+                        <div class="detail-content">
+                            <div class="detail-label">{{post.title}}</div>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-content">
+                            <div class="detail-value">{{post.body}}</div>
+                        </div>
+                    </div>
+                    <button class="action-btn edit-btn" (click)="getDetails(post.id)">დეტალურად</button>
+                </div>
+            </div>
+            
+        }
+    </div> 
+</div>

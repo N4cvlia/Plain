@@ -1,0 +1,109 @@
+@if (usersOrPosts == "posts") {
+    <div class="popup" *ngIf="isVisib">
+        <div class="user-card cardMedia" #popup>
+            <div class="user-header">
+                <div class="user-avatar">{{users[popUpData.id].name.split(" ")[0][0] + users[popUpData.id].name.split(" ")[1][0]}}</div>
+                <div class="user-name">
+                    <h3>{{users[popUpData.id].name}}</h3>
+                </div>
+            </div>
+            <div class="user-details">
+                <div class="detail-item">
+                    <div class="detail-content">
+                        <div class="detail-label">{{popUpData.title}}</div>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-content">
+                        <div class="detail-value">{{popUpData.body}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="header">
+            <h1>პოსტების სია</h1>
+        </div>
+        <div class="users-container">
+            @for (post of allPosts; track $index) {
+                <div class="user-card">
+                    <div class="user-header" *ngIf="users">
+                        <div class="user-avatar">{{users[post.userId - 1].name.split(" ")[0][0] + users[post.userId - 1].name.split(" ")[1][0]}}</div>
+                        <div class="user-name">
+                            <h3>{{users[post.userId - 1].name}}</h3>
+                        </div>
+                    </div>
+                    <div class="user-details">
+                        <div class="detail-item">
+                            <div class="detail-content">
+                                <div class="detail-label">{{post.title}}</div>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-content">
+                                <div class="detail-value">{{post.body}}</div>
+                            </div>
+                        </div>
+                        <button class="action-btn edit-btn" (click)="getDetails(post.title, post.body, post.userId - 1)">დეტალურად</button>
+                    </div>
+                </div>
+                
+            }
+        </div>
+        
+    </div>
+    
+}@else if(usersOrPosts == "users"){
+    <div class="container">
+        <div class="header">
+            <h1>მომხმარებლების სია</h1>
+            <p>სისტემაში რეგისტრირებული მომხმარებლები</p>
+        </div>
+    
+        <div class="controls">
+            <div class="search-box">
+                <input type="text" placeholder="მომხმარებლის ძიება..." id="searchInput" [(ngModel)]="searchInput" (input)="searchUp()">
+                <span class="search-icon">🔍</span>
+            </div>
+            <span style="font-size: 18px; font-weight: 500;">Total Users: {{users.length}}</span>
+        </div>
+    
+        <div class="user-grid">
+            @for (user of users; track $index) {
+                <div class="user-card">
+                    <div class="user-header">
+                        <div class="user-avatar">{{user.name.split(" ")[0][0] + user.name.split(" ")[1][0]}}</div>
+                        <div class="user-name">
+                            <h3>{{user.name}}</h3>
+                            <div class="user-company">{{user.company.name}}</div>
+                        </div>
+                    </div>
+                    <div class="user-details">
+                        <div class="detail-item">
+                            <div class="detail-icon">📱</div>
+                            <div class="detail-content">
+                                <div class="detail-label">ტელეფონი</div>
+                                <div class="detail-value">+{{user.phone.split(" ")[0]}}</div>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-icon">✉️</div>
+                            <div class="detail-content">
+                                <div class="detail-label">ელ-ფოსტა</div>
+                                <div class="detail-value">{{user.email}}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="user-actions">
+                        <button class="action-btn edit-btn" (click)="goToPosts(user, user.name)">პოსტები</button>
+                        <button class="action-btn edit-btn" (click)="goToTodo(user, user.name)">Todo List</button>
+                    </div>
+                </div>
+            }@empty {
+                <h1 style="text-align: center; color: rgba(0, 0, 0, 0.51);">No Users Found!</h1>
+            }
+        </div>
+    </div>
+}
+ 

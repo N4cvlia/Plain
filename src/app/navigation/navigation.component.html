@@ -1,0 +1,11 @@
+<nav>
+        <div class="menu1"> 
+            <i class="fa-solid fa-house" (mouseenter)="onHover(1)" (mouseleave)="unHover(1)" (click)="goToPosts()"></i>
+            <span [style]="isHovered1 ? 'opacity: 1; display: flex': 'opacity: 0; display: none'">Posts</span>
+        </div>
+        <div class="menu1">
+            <i class="fa-solid fa-users" (mouseenter)="onHover(2)" (mouseleave)="unHover(2)" (click)="goToUsers()"></i>
+            <span [style]="isHovered2 ? 'opacity: 1; display: flex': 'opacity: 0; display: none'">Users</span>
+        </div>
+    
+</nav>

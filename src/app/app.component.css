@@ -1,0 +1,12 @@
+.mainContent {
+    display: flex;
+    margin-top: 89px;
+    width: 100%;
+}
+@media (max-width: 530px) {
+    .mainContent {
+        flex-direction: column;
+        margin-top: 132px;
+    }
+}
+

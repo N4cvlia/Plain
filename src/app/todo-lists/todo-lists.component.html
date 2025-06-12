@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="header">
+        <h1>{{userName}}-ის Todo სია</h1>
+    </div>
+    <div class="todosContainer">
+        @for (todo of todoList; track $index) {
+            <div class="todo-card" [style]="todo.completed ? 'border-left: 4px solid green' : 'border-left: 4px solid red'">
+                <div class="user-details">
+                    <div class="detail-item">
+                        <div class="detail-content">
+                            <div class="detail-label">{{$index + 1}}. {{todo.title}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
