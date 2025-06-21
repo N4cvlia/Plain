@@ -4,13 +4,13 @@
     box-sizing: border-box;
     font-family: sans-serif;
 }
-app-table {
+app-table,
+app-todo-lists,
+app-user-page {
     width: 100%;
     min-height: 685px;
 }
-app-todo-lists {
-    width: 100%;
-}
+
 @media (max-width: 530px) {
     app-navigation {
         position: fixed;
