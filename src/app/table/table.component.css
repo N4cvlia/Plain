@@ -108,7 +108,7 @@ body {
     display: grid;
     gap: 25px;
     padding: 30px;
-    min-height: 250px;
+    min-height: 400px;
 }
 
 .user-card {
@@ -127,6 +127,7 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
+    min-height: 400px;
 }
 .popup {
     position: fixed;
